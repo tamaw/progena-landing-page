@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Progena AI">
+  <defs>
+    <linearGradient id="pg-strand-a" x1="8" y1="3" x2="24" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6f96ff"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="pg-strand-b" x1="24" y1="3" x2="8" y2="29" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#6f96ff"/>
+    </linearGradient>
+  </defs>
+  <g stroke-linecap="round">
+    <path d="M12.2 6.3h7.6M11 25.7h10M12 13.2h8M12 18.8h8" stroke="#6f96ff" stroke-opacity=".55" stroke-width="1.8"/>
+    <path d="M9 3c0 7 14 6 14 13S9 22 9 29" stroke="url(#pg-strand-a)" stroke-width="2.8"/>
+    <path d="M23 3c0 7-14 6-14 13s14 6 14 13" stroke="url(#pg-strand-b)" stroke-width="2.8"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "name": "progena-landing-page",
+  "private": true,
+  "description": "Static landing page for Progena AI (progena.ai)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve",
+    "og": "node build.mjs --og"
+  }
+}
