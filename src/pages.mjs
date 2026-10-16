@@ -1,5 +1,5 @@
 import { html, raw } from './templates/html.mjs';
-import { audiences, benefits, faq, finalCta, footer, header, hero, how, platform, selfHost } from './templates/sections.mjs';
+import { audiences, benefits, faq, finalCta, footer, header, hero, how, ideas, platform, selfHost } from './templates/sections.mjs';
 
 // Runs before first paint so the stored theme never flashes. Dark is the default.
 const THEME_BOOT = `try{var t=localStorage.getItem('progena-theme');document.documentElement.dataset.theme=t==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
@@ -42,8 +42,9 @@ function indexPage({ content, asset }) {
   ${header({ site, nav: content.nav, hero: content.hero, logo })}
   <main>
     ${hero({ ...content, logoSmall })}
-    ${platform(content)}
     ${how(content)}
+    ${platform(content)}
+    ${ideas(content)}
     ${audiences(content)}
     ${benefits(content)}
     ${selfHost(content)}

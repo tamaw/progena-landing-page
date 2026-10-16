@@ -42,7 +42,7 @@ export function renderOgCard({ content, fontUrl, logoSvg }) {
   <div class="brand">${raw(logoSvg)}<span>Progena <span class="grad">AI</span></span></div>
   <h1 class="title">${tagline.prefix}<br><span class="typed grad">${tagline.first}${tagline.suffix}</span><span class="cursor"></span></h1>
   <div class="foot">
-    <p class="lead">Your cloud workflows, planned, run and kept running by an AI agent you control.</p>
+    <p class="lead">${content.hero.pitch}</p>
     <span class="domain">${site.domain}</span>
   </div>
 </body>

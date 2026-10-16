@@ -21,6 +21,9 @@ const PATHS = {
   play: '<path d="M7 5l12 7-12 7z"/>',
   pause: '<path d="M8 5v14M16 5v14"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+  budget: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 14h3M15 14h2"/>',
+  network: '<rect x="8" y="3" width="8" height="5" rx="1"/><rect x="2" y="16" width="8" height="5" rx="1"/><rect x="14" y="16" width="8" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/>',
+  database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
 };
 
 export function icon(name, size) {
