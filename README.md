@@ -56,6 +56,12 @@ GitHub Pages hosts this static marketing site only; it is not the Progena AI dep
 
 When the deployment template is ready, wire the shared CTA in `src/content.mjs` to Azure Portal using a URL-encoded, reachable ARM JSON template URL. Bicep must first be compiled to JSON. See [Microsoft’s Deploy to Azure button documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button).
 
-## Deploying to GitHub Pages (later)
+## Deploying to GitHub Pages
 
-Publish `dist/` (for example with `actions/upload-pages-artifact` + `actions/deploy-pages` after `node build.mjs`). For the custom domain, add a `CNAME` file containing `progena.ai`.
+The public repository publishes through `.github/workflows/pages.yml`. Pushes to `main` build and deploy; pull requests build and validate without publishing. The workflow can also be run manually from Actions.
+
+The build runs `node build.mjs` on Node.js 22, uploads `dist/` as a Pages artifact, then deploys through GitHub’s `github-pages` environment. No dependency installation, personal token or `gh-pages` branch is needed. The deploy job has only `pages: write` and `id-token: write`; source checkout has read-only access.
+
+GitHub Pages must use **GitHub Actions** as its publishing source. Until the custom domain is configured, the site is available at https://tamaw.github.io/progena-landing-page/. Relative asset paths support this project URL.
+
+For `progena.ai`, configure DNS for GitHub Pages, then set the repository’s **Settings → Pages → Custom domain** and enable HTTPS once the certificate is ready. The workflow deliberately does not set a custom domain or modify DNS. Metadata continues to identify `https://progena.ai` as the intended canonical domain.
