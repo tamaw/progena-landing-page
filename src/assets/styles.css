@@ -202,6 +202,25 @@ ol {
   box-shadow: 0 12px 32px -10px var(--accent);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn--azure,
+.btn--azure:hover {
+  padding: 0;
+  height: 34px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.btn--azure img {
+  display: block;
+}
+
 .btn--secondary {
   background: var(--surface);
   border-color: var(--border-strong);
@@ -1636,25 +1655,6 @@ ol {
   font-size: 12px;
 }
 
-.terminal__copy {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  padding: 4px 9px;
-  border: 1px solid #2c313c;
-  border-radius: 7px;
-  background: transparent;
-  color: #b6bbc6;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.terminal__copy:hover {
-  color: #e6e8ed;
-}
-
 .terminal__body {
   margin: 0;
   padding: 22px;
@@ -1665,15 +1665,6 @@ ol {
   line-height: 1.9;
 }
 
-.terminal__line {
-  display: block;
-  white-space: pre;
-}
-
-.terminal__prompt {
-  color: #14b8a6;
-  user-select: none;
-}
 
 .terminal__line--out {
   margin-top: 8px;

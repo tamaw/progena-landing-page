@@ -1,6 +1,6 @@
 // Every word on the page lives here. Templates only decide layout.
 
-const repoUrl = 'https://github.com/tamaw/progenitor';
+const deployCta = { label: 'Deploy to Azure', disabled: true };
 
 // The seven verbs are the app's own sidebar group titles. The chat types them
 // out ("Orchestrating...") while it works; the site reuses that signature.
@@ -13,8 +13,7 @@ export const content = {
     url: 'https://progena.ai/',
     title: 'Progena AI · Always Automating your cloud workflows',
     description:
-      'Progena AI is an always-on AI agent that automates your cloud workflows. Describe what you need, and it plans, runs, schedules and reports on the work while you stay in control. Open source and self-hosted.',
-    repoUrl,
+      'Progena AI is an always-on AI agent that automates your cloud workflows. Describe what you need, and it plans, runs, schedules and reports on the work while you stay in control.',
     year: 2026,
   },
 
@@ -22,19 +21,19 @@ export const content = {
     { label: 'Platform', href: '#platform' },
     { label: 'How it works', href: '#how' },
     { label: 'Who it’s for', href: '#who' },
-    { label: 'Self-host', href: '#self-host' },
+    { label: 'Deploy', href: '#deploy' },
     { label: 'FAQ', href: '#faq' },
   ],
 
   tagline: { prefix: 'Always', words: verbs, first: 'Automating', suffix: '...' },
 
   hero: {
-    pill: 'Open source · Self-hosted · MIT licensed',
+    pill: 'Cloud workflow automation · Always on',
     lead:
       'Progena AI automates your cloud workflows. Describe what you need in plain language: it plans the work, runs it on schedule, keeps it running, and shows you every step.',
-    primary: { label: 'Self-host on GitHub', href: repoUrl },
+    primary: deployCta,
     secondary: { label: 'See how it works', href: '#how' },
-    note: 'Free and open source. Deploys into your own cloud with Docker.',
+    note: 'Azure deployment is coming soon. Stay in control of your cloud workflows.',
   },
 
   demo: {
@@ -264,25 +263,23 @@ export const content = {
       { icon: 'pulse', title: 'Nothing slips', body: 'Always on, with every run checkpointed. A restart picks up exactly where it left off.' },
       { icon: 'shield', title: 'You stay in control', body: 'See every step live, approve what matters, and stop anything instantly.' },
       { icon: 'helix', title: 'Grows with you', body: 'It learns your knowledge and builds the new capabilities it needs.' },
-      { icon: 'unlock', title: 'No lock-in', body: 'Open source, open agent standards, and your data stays in your cloud.' },
+      { icon: 'unlock', title: 'Works with your stack', body: 'Open agent standards connect the tools and agents you already rely on.' },
     ],
   },
 
   selfHost: {
-    eyebrow: 'Self-host',
+    eyebrow: 'Deploy to Azure',
     title: 'Your cloud. Your data. Your agent.',
-    body: 'Progena AI is free and open source. Deploy the full platform into your own infrastructure with Docker in minutes, and bring your own model keys.',
-    commands: [
-      `git clone ${repoUrl}.git`,
-      'cd progenitor',
-      'docker compose -f docker/docker-compose.progenitor.yml up -d',
-    ],
+    body: 'Bring cloud workflow automation into your Azure environment. A guided deployment is coming soon, with your infrastructure and model keys under your control.',
+    previewTitle: 'Azure deployment · coming soon',
+    previewSteps: ['Choose your Azure subscription', 'Configure your environment', 'Review and deploy Progena AI'],
+    previewNote: 'Deployment is not available yet.',
     points: [
       { title: 'The full platform', body: 'Web app, agent runtime and database in one stack.' },
-      { title: 'Secure by default', body: 'HTTPS-only out of the box. No plain-HTTP fallback to forget.' },
-      { title: 'MIT licensed', body: 'Use it, change it, ship it.' },
+      { title: 'Your Azure environment', body: 'Planned deployment into your own subscription.' },
+      { title: 'Your model keys', body: 'Connect your Azure OpenAI deployment.' },
     ],
-    cta: { label: 'Self-host on GitHub', href: repoUrl },
+    cta: deployCta,
   },
 
   faq: {
@@ -303,7 +300,7 @@ export const content = {
       },
       {
         q: 'Where does my data live?',
-        a: 'In your infrastructure. Progena AI is self-hosted: conversations, workflows, knowledge and run history are stored in your own database.',
+        a: 'Progena AI stores conversations, workflows, knowledge and run history in its database. The planned Azure deployment will run in your own subscription.',
       },
       {
         q: 'Which AI models does it use?',
@@ -319,17 +316,17 @@ export const content = {
       },
       {
         q: 'How much does it cost?',
-        a: 'Progena AI is free and open source under the MIT licence. You only pay for your own hosting and model usage.',
+        a: 'Pricing and deployment details will be shared before launch. Deploy to Azure is coming soon and is not available yet.',
       },
     ],
   },
 
   finalCta: {
     prefix: 'Start',
-    lead: 'Deploy Progena AI into your cloud today and put your workflows on autopilot.',
+    lead: 'Put your cloud workflows on autopilot. Deployment to your Azure environment is coming soon.',
   },
 
   footer: {
-    stats: ['Open source', 'Self-hosted', 'MIT licensed'],
+    stats: ['Cloud workflow automation', 'Azure deployment coming soon'],
   },
 };

@@ -1,4 +1,4 @@
-// Progena AI landing page behaviour: typed verbs, theme, menu, reveals, copy.
+// Progena AI landing page behaviour: typed verbs, theme, menu and reveals.
 (() => {
   const root = document.documentElement;
   root.classList.add('js');
@@ -137,20 +137,4 @@
       }
     }, { threshold: 0.25 }).observe(demo);
   }
-
-  // ---- Copy commands -----------------------------------------------------
-  document.querySelectorAll('[data-copy]').forEach((button) => {
-    const label = button.querySelector('[data-copy-label]');
-    button.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(button.dataset.copy);
-        if (label) label.textContent = 'Copied';
-      } catch {
-        if (label) label.textContent = 'Press Ctrl+C';
-      }
-      setTimeout(() => {
-        if (label) label.textContent = 'Copy';
-      }, 1800);
-    });
-  });
 })();

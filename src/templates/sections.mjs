@@ -1,5 +1,5 @@
 import { html } from './html.mjs';
-import { githubMark, icon } from './icons.mjs';
+import { icon } from './icons.mjs';
 import { typed } from './typed.mjs';
 import { heroDemo, pillarVisual } from './visuals.mjs';
 
@@ -12,11 +12,14 @@ const sectionHead = ({ eyebrow, title, intro }) => html`
 `;
 
 const cta = (link, variant) => {
+  if (link.disabled) {
+    return html`<button class="btn btn--${variant} btn--azure" type="button" disabled aria-label="${link.label}"><img src="assets/deploy-to-azure.svg" alt="${link.label}" width="167" height="34"></button>`;
+  }
   const external = link.href.startsWith('http');
-  return html`<a class="btn btn--${variant}" href="${link.href}"${external ? html` target="_blank" rel="noopener"` : ''}>${variant === 'primary' && external ? githubMark : ''}<span>${link.label}</span>${variant === 'secondary' ? icon('arrow', 16) : ''}</a>`;
+  return html`<a class="btn btn--${variant}" href="${link.href}"${external ? html` target="_blank" rel="noopener"` : ''}><span>${link.label}</span>${variant === 'secondary' ? icon('arrow', 16) : ''}</a>`;
 };
 
-export function header({ site, nav, logo }) {
+export function header({ site, nav, hero: h, logo }) {
   return html`
     <header class="site-header">
       <div class="container site-header__inner">
@@ -28,7 +31,7 @@ export function header({ site, nav, logo }) {
           <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle colour theme">
             <span class="icon-btn__sun">${icon('sun', 18)}</span><span class="icon-btn__moon">${icon('moon', 18)}</span>
           </button>
-          <a class="btn btn--ghost btn--sm" href="${site.repoUrl}" target="_blank" rel="noopener">${githubMark}<span>GitHub</span></a>
+          ${cta(h.primary, 'ghost btn--sm')}
           <button class="icon-btn site-header__menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">${icon('menu', 20)}</button>
         </div>
       </div>
@@ -158,7 +161,7 @@ export function benefits({ benefits: b }) {
 
 export function selfHost({ selfHost: s }) {
   return html`
-    <section class="section" id="self-host">
+    <section class="section" id="deploy">
       <div class="container selfhost">
         <div class="selfhost__copy reveal">
           <p class="eyebrow">${s.eyebrow}</p>
@@ -172,10 +175,12 @@ export function selfHost({ selfHost: s }) {
         <div class="terminal reveal">
           <div class="terminal__bar">
             <span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span>
-            <span class="terminal__title">Terminal</span>
-            <button class="terminal__copy" type="button" data-copy="${s.commands.join('\n')}" aria-label="Copy commands">${icon('copy', 15)}<span data-copy-label>Copy</span></button>
+            <span class="terminal__title">${s.previewTitle}</span>
           </div>
-          <pre class="terminal__body"><code>${s.commands.map((line) => html`<span class="terminal__line"><span class="terminal__prompt">$</span> ${line}</span>`)}<span class="terminal__line terminal__line--out">✓ Progena AI is up · https://localhost</span></code></pre>
+          <div class="terminal__body">
+            ${s.previewSteps.map((line, i) => html`<p>${i + 1}. ${line}</p>`)}
+            <p class="terminal__line--out">${s.previewNote}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -231,7 +236,6 @@ export function footer({ site, nav, footer: f, tagline, logo }) {
         </div>
         <nav class="site-footer__nav" aria-label="Footer">
           ${nav.map((item) => html`<a href="${item.href}">${item.label}</a>`)}
-          <a href="${site.repoUrl}" target="_blank" rel="noopener">GitHub</a>
         </nav>
       </div>
       <div class="container site-footer__base">

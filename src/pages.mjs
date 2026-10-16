@@ -39,7 +39,7 @@ function indexPage({ content, asset }) {
 </head>
 <body>
   <a class="skip-link" href="#platform">Skip to content</a>
-  ${header({ site, nav: content.nav, logo })}
+  ${header({ site, nav: content.nav, hero: content.hero, logo })}
   <main>
     ${hero({ ...content, logoSmall })}
     ${platform(content)}

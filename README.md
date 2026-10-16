@@ -33,6 +33,12 @@ Edit copy in `src/content.mjs`, never in templates. Asset URLs are relative and 
 - **Palette:** the app's theme tokens. Accent `#6f96ff` (dark) / `#2f6ff6` (light), teal `#14b8a6`, background `#0b0d11`. Dark-first, with a light toggle.
 - **Mark:** double helix, blue→teal gradient (`src/assets/logo.svg`).
 
+## Product deployment
+
+GitHub Pages hosts this static marketing site only; it is not the Progena AI deployment offering. The page uses disabled **Deploy to Azure** buttons with no URL or deployment action, displaying Microsoft’s official badge from https://aka.ms/deploytoazurebutton (stored locally). The Azure panel describes the planned flow, not a working deployment.
+
+When the deployment template is ready, wire the shared CTA in `src/content.mjs` to Azure Portal using a URL-encoded, reachable ARM JSON template URL. Bicep must first be compiled to JSON. See [Microsoft’s Deploy to Azure button documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button).
+
 ## Deploying to GitHub Pages (later)
 
 Publish `dist/` (for example with `actions/upload-pages-artifact` + `actions/deploy-pages` after `node build.mjs`). For the custom domain, add a `CNAME` file containing `progena.ai`.
