@@ -16,7 +16,7 @@ const cta = (link, variant) => {
     return html`<button class="btn btn--${variant} btn--azure" type="button" disabled aria-label="${link.label}"><img src="assets/deploy-to-azure.svg" alt="${link.label}" width="167" height="34"></button>`;
   }
   const external = link.href.startsWith('http');
-  return html`<a class="btn btn--${variant}" href="${link.href}"${external ? html` target="_blank" rel="noopener"` : ''}>${link.href === 'https://github.com/tamaw/progenitor' ? html`<span class="github-mark" aria-hidden="true"></span>` : ''}<span>${link.label}</span>${variant === 'secondary' && !external ? icon('arrow', 16) : ''}</a>`;
+  return html`<a class="btn btn--${variant}" href="${link.href}"${external ? html` target="_blank" rel="noopener"` : ''}>${link.href.startsWith('https://github.com/') ? html`<span class="github-mark" aria-hidden="true"></span>` : ''}<span>${link.label}</span>${variant === 'secondary' && !external ? icon('arrow', 16) : ''}</a>`;
 };
 
 export function header({ site, nav, hero: h, logo }) {

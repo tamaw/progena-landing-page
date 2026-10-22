@@ -1,6 +1,7 @@
 // Every word on the page lives here. Templates only decide layout.
 
 const deployCta = { label: 'Deploy to Azure', disabled: true };
+const repo = 'https://github.com/tamaw/progena';
 
 // The seven verbs are the app's own sidebar group titles. The chat types them
 // out ("Orchestrating...") while it works; the site reuses that signature.
@@ -25,7 +26,7 @@ export const content = {
     { label: 'Why Progena AI', href: '#why' },
     { label: 'Deploy', href: '#deploy' },
     { label: 'FAQ', href: '#faq' },
-    { label: 'GitHub', href: 'https://github.com/tamaw/progenitor' },
+    { label: 'GitHub', href: repo },
   ],
 
   tagline: { prefix: 'Always', words: verbs, first: 'Orchestrating', suffix: '...' },
@@ -36,7 +37,7 @@ export const content = {
     pitch:
       'Your AI team, at work.',
     primary: deployCta,
-    secondary: { label: 'View on GitHub', href: 'https://github.com/tamaw/progenitor' },
+    secondary: { label: 'View on GitHub', href: repo },
     note: 'Progena AI is a hosted, stateful orchestration agent built for teams, powered by LangGraph and Microsoft Foundry.',
   },
 
